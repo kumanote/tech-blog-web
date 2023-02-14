@@ -1,0 +1,55 @@
+{
+  "name": "tech-blog-web",
+  "version": "1.0.0",
+  "description": "Kumanote Tech Blog Web Application.",
+  "homepage": "https://github.com/kumanote/tech-blog-web",
+  "author": "Hiroki Tanaka <hiroki.tanaka@kumano-te.com>",
+  "license": "SEE LICENSE IN LICENCE",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint --ext .ts,.js,.vue .",
+    "lintfix": "prettier --write --list-different ."
+  },
+  "lint-staged": {
+    "**/*.{js,ts,vue}": [
+      "eslint"
+    ],
+    "*.**": [
+      "prettier --check --ignore-unknown"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.4.2",
+    "@commitlint/config-conventional": "^17.4.2",
+    "@funken-studio/sitemap-nuxt-3": "^4.0.4",
+    "@nuxtjs/eslint-config-typescript": "^12.0.0",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.3",
+    "@tailwindcss/typography": "^0.5.9",
+    "@typescript-eslint/eslint-plugin": "^5.50.0",
+    "@typescript-eslint/parser": "^5.50.0",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "autoprefixer": "^10.4.13",
+    "eslint": "^8.33.0",
+    "eslint-plugin-nuxt": "^4.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.9.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0",
+    "nuxt": "^3.1.2",
+    "postcss": "^8.4.21",
+    "prettier": "^2.8.3",
+    "sass": "^1.58.1",
+    "tailwindcss": "^3.2.4",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "@headlessui/vue": "^1.7.9",
+    "@heroicons/vue": "^2.0.14",
+    "vue-gtag-next": "^1.14.0"
+  }
+}
