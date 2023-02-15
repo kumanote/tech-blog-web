@@ -1,7 +1,7 @@
 export default defineAppConfig({
-  title: 'Kumanote Tech homepage',
+  title: 'Kumanote Tech Blog',
   description:
-    '合同会社kumanoteではエンジニアブログを運用しています。開発に役立つ情報を発信しています。',
+    '合同会社kumanoteのエンジニアブログです。開発に役立つ情報を発信しています。',
   author: 'Kumanote LLC.',
   contactUrl:
     'https://docs.google.com/forms/d/e/1FAIpQLSe9VlnOzOUo9rWNrzzhzVMeaCM-p7hmW0l5zkxwAMV0PvIoHA/viewform',

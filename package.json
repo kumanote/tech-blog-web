@@ -50,6 +50,7 @@
   "dependencies": {
     "@headlessui/vue": "^1.7.9",
     "@heroicons/vue": "^2.0.14",
+    "@nuxtjs/dayjs": "^1.4.1",
     "vue-gtag-next": "^1.14.0"
   }
 }
