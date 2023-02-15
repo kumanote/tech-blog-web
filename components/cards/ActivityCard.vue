@@ -7,8 +7,7 @@
 </script>
 
 <template>
-  <a
-    target="_blank"
+  <NuxtLink
     :href="`/activities/${activity.slug}`"
     class="block flex flex-col rounded-lg shadow-lg overflow-hidden"
   >
@@ -52,5 +51,5 @@
         </p>
       </div>
     </div>
-  </a>
+  </NuxtLink>
 </template>
