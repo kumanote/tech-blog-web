@@ -29,7 +29,7 @@
   <div
     class="overflow-hidden bg-slate-900 dark:-mb-32 dark:mt-[-4.5rem] dark:pb-32 dark:pt-[4.5rem] dark:lg:mt-[-4.75rem] dark:lg:pt-[4.75rem]"
   >
-    <div class="py-16 sm:px-2 lg:relative lg:py-20 lg:px-0">
+    <div class="py-16 sm:px-2 lg:relative lg:py-20 lg:px-0 overflow-hidden">
       <div class="container">
         <div class="relative z-10 md:text-center lg:text-left">
           <svg

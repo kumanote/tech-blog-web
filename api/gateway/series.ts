@@ -71,3 +71,26 @@ export async function searchAllChapters() {
   }
   return results
 }
+
+export async function getSeries({ slug }: { slug: string }) {
+  const appConfig = useAppConfig()
+  const { data: chapters } = await useFetch<Array<Chapter>>(
+    `${appConfig.apiBaseUrl}/chapters/`,
+    {
+      params: {
+        type: 'series',
+        series_slug: slug,
+        skip: 0,
+        limit: -1,
+      },
+    }
+  )
+  if (!chapters || !chapters.value || chapters.value.length < 1) return null
+  const result: Series = {
+    id: chapters.value[0].series_id,
+    slug: chapters.value[0].series_slug,
+    title: chapters.value[0].series_title,
+    chapters: chapters.value,
+  }
+  return result
+}
