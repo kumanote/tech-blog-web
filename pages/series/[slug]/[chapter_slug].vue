@@ -1,21 +1,20 @@
 <script setup lang="ts">
   import Breadcrumb from '~/components/breadcrumbs/Breadcrumb.vue'
   import MarkdownViewer from '~/components/viewers/MarkdownViewer.vue'
-  import ActivityCardSmall from '~/components/cards/ActivityCardSmall.vue'
+  import ChapterCardSmall from '~/components/cards/ChapterCardSmall.vue'
   import TocSidebar from '~/components/sidebars/TocSidebar.vue'
-  import { getActivity, searchRelatedActivities } from '~/api/gateway/activity'
-  import { Activity } from '~/api/schema/activity'
+  import { getChapter, searchRelatedChapters } from '~/api/gateway/series'
+  import { Chapter } from '~/api/schema/series'
   import { parseHtml } from '~/lib/toc'
   const route = useRoute()
-  const single: Activity | null = await getActivity({
-    slug: String(route.params.slug),
+  const single: Chapter | null = await getChapter({
+    slug: String(route.params.chapter_slug),
   })
   if (!single) {
     throw createError({ statusCode: 404, statusMessage: 'Page Not Found' })
   }
-  const relatedActivities = await searchRelatedActivities({
-    tags: single.tags,
-    limit: 4,
+  const relatedActivities = await searchRelatedChapters({
+    seriesSlug: single.series_slug,
   })
   const { $md } = useNuxtApp()
   const contentHtml = computed(() => {
@@ -26,12 +25,16 @@
   })
   const breadcrumbItems = [
     {
-      name: '記事一覧',
-      href: '/activities',
+      name: '連載記事一覧',
+      href: '/series',
+    },
+    {
+      name: single.series_title,
+      href: `/series/${single.series_slug}`,
     },
     {
       name: single.title,
-      href: `/activities/${single.slug}`,
+      href: `/series/${single.series_slug}/${single.slug}`,
     },
   ]
   const stickToc = useState<boolean>('stickToc', () => {
@@ -91,10 +94,10 @@
             関連する記事
           </h1>
           <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 mt-4">
-            <ActivityCardSmall
+            <ChapterCardSmall
               v-for="(item, index) in relatedActivities"
               :key="index"
-              :activity="item"
+              :chapter="item"
               :active="item.slug === single.slug"
             />
           </div>

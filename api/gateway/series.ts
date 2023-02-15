@@ -34,6 +34,27 @@ export function searchFavoriteChapters({
   })
 }
 
+export async function searchRelatedChapters({
+  seriesSlug,
+}: {
+  seriesSlug: string
+}) {
+  const appConfig = useAppConfig()
+  const { data } = await useFetch<Array<Chapter>>(
+    `${appConfig.apiBaseUrl}/chapters/`,
+    {
+      params: {
+        type: 'series',
+        series_slug: seriesSlug,
+        skip: 0,
+        limit: -1,
+      },
+    }
+  )
+  if (!data || !data.value) return []
+  return data.value
+}
+
 export async function searchAllChapters() {
   const appConfig = useAppConfig()
   const { data: chapters } = await useFetch<Array<Chapter>>(
@@ -93,4 +114,13 @@ export async function getSeries({ slug }: { slug: string }) {
     chapters: chapters.value,
   }
   return result
+}
+
+export async function getChapter({ slug }: { slug: string }) {
+  const appConfig = useAppConfig()
+  const { data } = await useFetch<Chapter>(
+    `${appConfig.apiBaseUrl}/chapters/${slug}`
+  )
+  if (!data || !data.value) return null
+  return data.value
 }
