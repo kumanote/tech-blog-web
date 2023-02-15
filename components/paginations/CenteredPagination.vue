@@ -83,7 +83,7 @@
     <div class="-mt-px w-0 flex-1 flex">
       <a
         v-if="hasPrevious"
-        class="border-t-2 border-transparent pt-4 pr-1 inline-flex items-center text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark-hover:text-gray-200 whitespace-nowrap"
+        class="border-t-2 border-transparent pt-4 pr-1 inline-flex items-center text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 whitespace-nowrap"
         @click="change(previous)"
       >
         <ArrowLeftIcon class="mr-3 h-5 w-5 text-gray-400" />
@@ -98,7 +98,7 @@
           class="border-t-2 pt-4 px-4 inline-flex items-center text-sm font-medium"
           :class="{
             'border-primary-500 text-primary-600': item.active,
-            'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark-hover:text-gray-200 hover:border-gray-300':
+            'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:border-gray-300':
               !item.active,
           }"
           @click="change(item.page)"
@@ -117,7 +117,7 @@
     <div class="-mt-px w-0 flex-1 flex justify-end">
       <a
         v-if="hasNext"
-        class="border-t-2 border-transparent pt-4 pl-1 inline-flex items-center text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark-hover:text-gray-200 whitespace-nowrap"
+        class="border-t-2 border-transparent pt-4 pl-1 inline-flex items-center text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 whitespace-nowrap"
         @click="change(next)"
       >
         次へ
