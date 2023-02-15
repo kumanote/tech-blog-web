@@ -1,7 +1,6 @@
 <script setup lang="ts">
   import AppStoreBadge from '~/components/badges/AppStoreBadge.vue'
   import GooglePlayStoreBadge from '~/components/badges/GooglePlayStoreBadge.vue'
-  import TextContainer from '~/components/texts/TextContainer.vue'
   const appConfig = useAppConfig()
 </script>
 
