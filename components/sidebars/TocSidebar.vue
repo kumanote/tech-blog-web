@@ -78,6 +78,7 @@
           >
         </li>
       </ul>
+      <adsbygoogle ad-slot="7639343992"></adsbygoogle>
     </div>
   </div>
 </template>

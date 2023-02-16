@@ -80,6 +80,11 @@
         <div class="pt-4">
           <MarkdownViewer :html="contentHtml" />
         </div>
+        <div class="py-8">
+          <div class="rounded-lg shadow-lg overflow-hidden">
+            <adsbygoogle ad-slot="5916457964"></adsbygoogle>
+          </div>
+        </div>
         <div
           v-if="relatedActivities && relatedActivities.length > 1"
           class="py-8"

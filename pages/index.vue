@@ -101,6 +101,15 @@
       </div>
     </div>
   </section>
+  <section class="bg-white dark:bg-gray-900 py-8 sm:py-12 lg:py-16">
+    <div class="relative">
+      <div class="text-center container">
+        <div class="rounded-lg shadow-lg overflow-hidden">
+          <adsbygoogle ad-slot="3038604066"></adsbygoogle>
+        </div>
+      </div>
+    </div>
+  </section>
   <section
     v-if="latestChapters"
     class="relative bg-white dark:bg-gray-900 py-8 sm:py-12 lg:py-16"
@@ -176,6 +185,23 @@
           :key="index"
           :chapter="item"
         ></ChapterCard>
+      </div>
+    </div>
+  </section>
+  <section class="bg-white dark:bg-gray-900 py-8 sm:py-12 lg:py-16">
+    <div class="relative">
+      <div class="text-center container">
+        <div class="grid gap-8 lg:grid-cols-3">
+          <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
+            <adsbygoogle ad-slot="6375213849"></adsbygoogle>
+          </div>
+          <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
+            <adsbygoogle ad-slot="4052302833"></adsbygoogle>
+          </div>
+          <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
+            <adsbygoogle ad-slot="7632331489"></adsbygoogle>
+          </div>
+        </div>
       </div>
     </div>
   </section>
