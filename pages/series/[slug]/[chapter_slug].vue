@@ -6,6 +6,7 @@
   import { getChapter, searchRelatedChapters } from '~/api/gateway/series'
   import { Chapter } from '~/api/schema/series'
   import { parseHtml } from '~/lib/toc'
+  const runtimeConfig = useRuntimeConfig()
   const route = useRoute()
   const single: Chapter | null = await getChapter({
     slug: String(route.params.chapter_slug),
@@ -85,7 +86,9 @@
         </div>
         <div class="py-8">
           <div class="rounded-lg shadow-lg overflow-hidden">
-            <adsbygoogle ad-slot="7475692461"></adsbygoogle>
+            <adsbygoogle
+              :ad-slot="String(runtimeConfig.adsenseChapterDetail)"
+            ></adsbygoogle>
           </div>
         </div>
         <div

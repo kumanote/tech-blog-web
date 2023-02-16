@@ -4,6 +4,7 @@
     toc: Array<TocItem>
   }
   const props = defineProps<Props>()
+  const runtimeConfig = useRuntimeConfig()
 
   const currentOffset = ref<number>(0)
   const activeIndex = ref<number>(0)
@@ -78,7 +79,9 @@
           >
         </li>
       </ul>
-      <adsbygoogle ad-slot="7639343992"></adsbygoogle>
+      <adsbygoogle
+        :ad-slot="String(runtimeConfig.adsenseArticleToc)"
+      ></adsbygoogle>
     </div>
   </div>
 </template>

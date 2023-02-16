@@ -10,6 +10,7 @@
     searchFavoriteChapters,
   } from '~/api/gateway/series'
   const appConfig = useAppConfig()
+  const runtimeConfig = useRuntimeConfig()
   const { data: latestActivitiesSearchResult } = await searchLatestActivities({
     limit: 9,
   })
@@ -105,7 +106,9 @@
     <div class="relative">
       <div class="text-center container">
         <div class="rounded-lg shadow-lg overflow-hidden">
-          <adsbygoogle ad-slot="3038604066"></adsbygoogle>
+          <adsbygoogle
+            :ad-slot="String(runtimeConfig.adsenseIndexBanner)"
+          ></adsbygoogle>
         </div>
       </div>
     </div>
@@ -193,13 +196,19 @@
       <div class="text-center container">
         <div class="grid gap-8 lg:grid-cols-3">
           <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
-            <adsbygoogle ad-slot="6375213849"></adsbygoogle>
+            <adsbygoogle
+              :ad-slot="String(runtimeConfig.adsenseIndexBottomFst)"
+            ></adsbygoogle>
           </div>
           <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
-            <adsbygoogle ad-slot="4052302833"></adsbygoogle>
+            <adsbygoogle
+              :ad-slot="String(runtimeConfig.adsenseIndexBottomSnd)"
+            ></adsbygoogle>
           </div>
           <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
-            <adsbygoogle ad-slot="7632331489"></adsbygoogle>
+            <adsbygoogle
+              :ad-slot="String(runtimeConfig.adsenseIndexBottomThd)"
+            ></adsbygoogle>
           </div>
         </div>
       </div>

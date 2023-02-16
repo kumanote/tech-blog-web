@@ -265,8 +265,16 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       gaId: '', // can be overridden by NUXT_PUBLIC_GA_ID environment variable
+      adsenseIndexBanner: '', // can be overridden by NUXT_PUBLIC_ADSENSE_INDEX_BANNER environment variable
+      adsenseIndexBottomFst: '', // can be overridden by NUXT_PUBLIC_ADSENSE_INDEX_BOTTOM_FST environment variable
+      adsenseIndexBottomSnd: '', // can be overridden by NUXT_PUBLIC_ADSENSE_INDEX_BOTTOM_SND environment variable
+      adsenseIndexBottomThd: '', // can be overridden by NUXT_PUBLIC_ADSENSE_INDEX_BOTTOM_THD environment variable
+      adsenseActivityDetail: '', // can be overridden by NUXT_PUBLIC_ADSENSE_ACTIVITY_DETAIL environment variable
+      adsenseChapterDetail: '', // can be overridden by NUXT_PUBLIC_ADSENSE_CHAPTER_DETAIL environment variable
+      adsenseArticleToc: '', // can be overridden by NUXT_PUBLIC_ADSENSE_ARTICLE_TOC environment variable
       'google-adsense': {
-        id: '', // can be overridden by NUXT_PUBLIC_GOOGLE_ADSENSE_ID environment variable
+        id: process.env.GOOGLE_ADSENSE_ID,
+        test: process.env.GOOGLE_ADSENSE_TEST_MODE === 'true',
       },
     },
   },

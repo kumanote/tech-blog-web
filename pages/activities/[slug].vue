@@ -6,6 +6,7 @@
   import { getActivity, searchRelatedActivities } from '~/api/gateway/activity'
   import { Activity } from '~/api/schema/activity'
   import { parseHtml } from '~/lib/toc'
+  const runtimeConfig = useRuntimeConfig()
   const route = useRoute()
   const single: Activity | null = await getActivity({
     slug: String(route.params.slug),
@@ -82,7 +83,9 @@
         </div>
         <div class="py-8">
           <div class="rounded-lg shadow-lg overflow-hidden">
-            <adsbygoogle ad-slot="5916457964"></adsbygoogle>
+            <adsbygoogle
+              :ad-slot="String(runtimeConfig.adsenseActivityDetail)"
+            ></adsbygoogle>
           </div>
         </div>
         <div
