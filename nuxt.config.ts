@@ -242,9 +242,22 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  modules: [
+    // Simple usage
+    [
+      '@nuxtjs/google-adsense',
+      {
+        onPageLoad: false,
+        pageLevelAds: false,
+      },
+    ],
+  ],
   runtimeConfig: {
     public: {
       gaId: '', // can be overridden by NUXT_PUBLIC_GA_ID environment variable
+      'google-adsense': {
+        id: '', // can be overridden by NUXT_PUBLIC_GOOGLE_ADSENSE_ID environment variable
+      },
     },
   },
 })
