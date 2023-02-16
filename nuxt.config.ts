@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import dynamicRoutes from './lib/sitemap'
+
 export default defineNuxtConfig({
   app: {
     head: {
@@ -249,6 +251,14 @@ export default defineNuxtConfig({
       {
         onPageLoad: false,
         pageLevelAds: false,
+      },
+    ],
+    [
+      '@funken-studio/sitemap-nuxt-3',
+      {
+        hostname: 'https://blog.kumano-te.com',
+        cacheTime: 1000 * 60 * 60 * 24, // 1 day
+        routes: dynamicRoutes,
       },
     ],
   ],
