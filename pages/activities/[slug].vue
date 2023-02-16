@@ -34,9 +34,7 @@
       href: `/activities/${single.slug}`,
     },
   ]
-  const stickToc = useState<boolean>('stickToc', () => {
-    return false
-  })
+  const stickToc = ref(false)
   const handleScroll = () => {
     const scrollHeight =
       window.pageYOffset || document.documentElement.offsetTop || 0

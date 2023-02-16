@@ -4,14 +4,9 @@
     toc: Array<TocItem>
   }
   const props = defineProps<Props>()
-  const router = useRouter()
 
-  const currentOffset = useState<number>('currentOffset', () => {
-    return 0
-  })
-  const activeIndex = useState<number>('activeIndex', () => {
-    return 0
-  })
+  const currentOffset = ref<number>(0)
+  const activeIndex = ref<number>(0)
 
   const indentClass = (indent: number) => {
     if (!indent || indent <= 0) return ''
