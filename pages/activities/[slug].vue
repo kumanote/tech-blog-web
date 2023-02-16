@@ -13,6 +13,7 @@
   if (!single) {
     throw createError({ statusCode: 404, statusMessage: 'Page Not Found' })
   }
+  useHead({ title: single.title })
   const relatedActivities = await searchRelatedActivities({
     tags: single.tags,
     limit: 4,

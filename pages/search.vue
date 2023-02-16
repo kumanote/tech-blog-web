@@ -8,6 +8,12 @@
   const router = useRouter()
   const tag = String(route.query.tag)
   const page = ref(Number(route.query.page) || 1)
+  const title = computed(() => {
+    return `${tag}による検索結果${
+      page.value > 1 ? ' ' + page.value + 'ページ' : ''
+    }`
+  })
+  useHead({ title })
   const skip = (page.value - 1) * itemsPerPage
   const { data: searchResult } = await searchArticles({
     tag: tag,
@@ -53,7 +59,7 @@
         <p
           class="mt-2 text-3xl font-extrabold text-gray-900 dark:text-gray-50 tracking-tight sm:text-4xl"
         >
-          {{ tag }}による検索結果
+          {{ title }}
         </p>
       </div>
       <div class="mt-12 container grid gap-8 lg:grid-cols-3">

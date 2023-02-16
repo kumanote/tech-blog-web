@@ -6,6 +6,10 @@
   const route = useRoute()
   const router = useRouter()
   const page = ref(Number(route.query.page) || 1)
+  const title = computed(() => {
+    return `直近の記事${page.value > 1 ? ' ' + page.value + 'ページ' : ''}`
+  })
+  useHead({ title })
   const skip = (page.value - 1) * itemsPerPage
   const { data: searchResult } = await searchLatestActivities({
     skip,
@@ -48,7 +52,7 @@
         <p
           class="mt-2 text-3xl font-extrabold text-gray-900 dark:text-gray-50 tracking-tight sm:text-4xl"
         >
-          直近の記事
+          {{ title }}
         </p>
       </div>
       <div class="mt-12 container grid gap-8 lg:grid-cols-3">

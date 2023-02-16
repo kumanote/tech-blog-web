@@ -3,6 +3,8 @@
   import { searchAllChapters } from '~/api/gateway/series'
   import { Series } from '~/api/schema/series'
   const chapters: Array<Series> = await searchAllChapters()
+  const title = '連載記事'
+  useHead({ title })
 </script>
 
 <template>
@@ -16,7 +18,7 @@
       <p
         class="mt-2 text-3xl font-extrabold text-gray-900 dark:text-gray-50 tracking-tight sm:text-4xl"
       >
-        連載記事
+        {{ title }}
       </p>
     </div>
     <div class="mt-12 container space-y-8">
