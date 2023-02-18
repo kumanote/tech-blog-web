@@ -1,8 +1,8 @@
 FROM node:19.6.0-buster-slim
 
-WORKDIR /app
-COPY ./package.json /app/
-COPY ./yarn.lock /app/
+WORKDIR /tech-blog-web
+COPY ./package.json /tech-blog-web/
+COPY ./yarn.lock /tech-blog-web/
 RUN yarn install
 
 ARG BUILD_ENV
