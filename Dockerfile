@@ -11,4 +11,4 @@ COPY . .
 RUN yarn build
 
 EXPOSE 3000
-CMD ["yarn", "run", "nuxt", "start", "--hostname", "0.0.0.0", "--port", "3000"]
+CMD ["yarn", "run", "nuxt", "start"]
