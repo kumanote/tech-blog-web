@@ -3,6 +3,7 @@
 .husky
 .nuxt/
 .output/
+.build/
 .node-version
 node_modules/
 .idea/
