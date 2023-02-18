@@ -1,0 +1,13 @@
+.git/
+.gitignore
+.husky
+.nuxt/
+.output/
+.node-version
+node_modules/
+.idea/
+*.log
+.env
+.env.*.example
+.envrc
+LICENSE

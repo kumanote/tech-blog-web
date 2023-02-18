@@ -18,3 +18,11 @@ This is a real-world example of [Nuxt3](https://nuxt.com/) application with the 
 - [vue-gtag-next](https://matteo-gabriele.gitbook.io/vue-gtag/v/next/)
 - [sitemap](https://github.com/funkenstudio/sitemap-module-nuxt-3)
 - [atom fee](./server/routes/feed.xml.ts)
+
+# Docker build & run
+
+```bash
+% IMAGE=tech-blog-web:latest
+% docker build -t ${IMAGE} .
+% docker run --rm -p 3000:3000 -e GOOGLE_ADSENSE_TEST_MODE=true ${IMAGE}
+```
