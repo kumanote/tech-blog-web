@@ -12,7 +12,7 @@ export default defineAppConfig({
   twitterUrl: 'https://twitter.com/t_kumanote',
   githubUrl: 'https://github.com/kumanote',
   feedlyUrl:
-    'https://feedly.com/i/subscription/feed%2Fhttps%3A%2F%2Fkumano-te.com%2Ffeed.xml',
+    'https://feedly.com/i/subscription/feed%2Fhttps%3A%2F%2Fblog.kumano-te.com%2Ffeed.xml',
   corporateWebSiteTopUrl: 'https://kumano-te.com',
   privacyPolicyUrl: 'https://kumano-te.com/privacy_policy',
   apiBaseUrl: 'https://api.kumano-te.com/api/v1',
