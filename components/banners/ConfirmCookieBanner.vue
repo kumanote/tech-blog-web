@@ -51,7 +51,7 @@
 <template>
   <div
     v-if="isTrackingAccepted === null"
-    class="pointer-events-none fixed inset-x-0 bottom-0 px-4 pb-4"
+    class="pointer-events-none fixed inset-x-0 bottom-0 px-4 pb-4 z-50"
   >
     <div
       class="pointer-events-auto mx-auto max-w-screen rounded-xl bg-white p-6 ring-1 ring-gray-900/10 dark:bg-gray-900 dark:ring-gray-50/10"

@@ -9,6 +9,7 @@
     searchLatestChapters,
     searchFavoriteChapters,
   } from '~/api/gateway/series'
+  import GithubIcon from '~/components/icons/socials/GithubIcon.vue'
   const appConfig = useAppConfig()
   const runtimeConfig = useRuntimeConfig()
   const { data: latestActivitiesSearchResult } = await searchLatestActivities({
@@ -32,44 +33,30 @@
   >
     <div class="py-16 sm:px-2 lg:relative lg:py-20 lg:px-0 overflow-hidden">
       <div class="container">
-        <div class="relative z-10 md:text-center lg:text-left">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1024 1024"
-            class="absolute top-1/2 left-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:translate-y-0 lg:-translate-x-1/2"
-            aria-hidden="true"
-          >
-            <circle
-              cx="512"
-              cy="512"
-              r="512"
-              fill="url(#gradient-circle)"
-              fill-opacity="0.7"
-            />
-            <defs>
-              <radialGradient id="gradient-circle">
-                <stop offset="0" stop-color="#0369a1" />
-                <stop offset="1" stop-color="#bae6fd" />
-              </radialGradient>
-            </defs>
-          </svg>
-          <div class="relative">
+        <div class="md:text-center lg:text-left">
+          <div>
             <p
-              class="inline bg-gradient-to-r from-blue-200 to-primary-400 bg-clip-text font-display text-5xl tracking-tight text-transparent"
+              class="inline bg-gradient-to-r from-blue-200 to-primary-400 bg-clip-text font-display text-3xl tracking-tight text-transparent sm:text-5xl"
             >
               {{ appConfig.title }}
             </p>
-            <p class="mt-3 text-2xl tracking-tight text-gray-400">
-              {{ appConfig.description }}<br />
-              また、このブログサイト自体オープンソースでできています。
+            <p class="mt-3 text-lg tracking-tight text-gray-400 sm:text-2xl">
+              {{ appConfig.description }}
             </p>
-            <div class="mt-8 flex gap-4 md:justify-center lg:justify-start">
-              <a
-                target="_blank"
-                class="rounded-full bg-slate-800 py-2 px-4 text-sm font-medium text-white hover:bg-slate-700 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50 active:text-slate-400"
-                href="https://github.com/kumanote/tech-blog-web"
-                >View on GitHub</a
-              >
+            <div class="mt-8 space-y-2">
+              <p class="text-primary-300 text-sm">
+                このブログサイトはオープンソースでできています。
+              </p>
+              <div>
+                <a
+                  target="_blank"
+                  class="rounded-full inline-flex items-center space-x-2 bg-slate-800 py-2 px-4 text-sm font-medium text-white hover:bg-slate-700 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50 active:text-slate-400"
+                  href="https://github.com/kumanote/tech-blog-web"
+                >
+                  <GithubIcon class="h-6 w-6" />
+                  <span>View source codes</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
