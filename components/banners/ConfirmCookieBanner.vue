@@ -3,22 +3,35 @@
   const appConfig = useAppConfig()
   const { isEnabled } = useGtagNextState()
   const accepted = ref<boolean | null>(false)
+  const acceptTrackingCookieOptions = {
+    maxAge: 2147483647, // 68 years
+    secure: true,
+  }
 
   const accept = () => {
-    const flag = useCookie(appConfig.acceptTrackingCookieName)
+    const flag = useCookie(
+      appConfig.acceptTrackingCookieName,
+      acceptTrackingCookieOptions
+    )
     flag.value = 'yes'
     if (typeof isEnabled !== 'undefined') isEnabled.value = true
     accepted.value = true
   }
   const reject = () => {
-    const flag = useCookie(appConfig.acceptTrackingCookieName)
+    const flag = useCookie(
+      appConfig.acceptTrackingCookieName,
+      acceptTrackingCookieOptions
+    )
     flag.value = 'no'
     if (typeof isEnabled !== 'undefined') isEnabled.value = false
     accepted.value = false
   }
 
   onMounted(() => {
-    const flag = useCookie(appConfig.acceptTrackingCookieName)
+    const flag = useCookie(
+      appConfig.acceptTrackingCookieName,
+      acceptTrackingCookieOptions
+    )
     if (flag.value === 'yes') {
       // auto accept
       accept()
