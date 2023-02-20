@@ -6,6 +6,7 @@
   import { getActivity, searchRelatedActivities } from '~/api/gateway/activity'
   import { Activity } from '~/api/schema/activity'
   import { parseHtml } from '~/lib/toc'
+  const appConfig = useAppConfig()
   const runtimeConfig = useRuntimeConfig()
   const route = useRoute()
   const single: Activity | null = await getActivity({
@@ -14,7 +15,33 @@
   if (!single) {
     throw createError({ statusCode: 404, statusMessage: 'Page Not Found' })
   }
-  useHead({ title: single.title })
+  const ogImageUrl =
+    single.avatar_image_url || `${appConfig.baseUrl}/images/ogp/common.png`
+  const description = single.subtitle || appConfig.description
+  useHead({
+    title: single.title,
+    meta: [
+      { name: 'description', content: description },
+      {
+        name: 'keywords',
+        content: single.tags?.join(', ') || '',
+      },
+      { property: 'og:title', content: single.title },
+      { name: 'og:description', content: single.subtitle || '' },
+      {
+        property: 'og:url',
+        content: `${appConfig.baseUrl}/activities/${single.slug}`,
+      },
+      {
+        property: 'og:image',
+        content: ogImageUrl,
+      },
+      { name: 'twitter:card', content: 'summary' },
+      { name: 'twitter:title', content: single.title },
+      { name: 'twitter:description', content: description },
+      { name: 'twitter:image:src', content: ogImageUrl },
+    ],
+  })
   const relatedActivities = await searchRelatedActivities({
     tags: single.tags,
     limit: 4,
