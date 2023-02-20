@@ -18,6 +18,7 @@ This is a real-world example of [Nuxt3](https://nuxt.com/) application with the 
 - [vue-gtag-next](https://matteo-gabriele.gitbook.io/vue-gtag/v/next/)
 - [sitemap](https://github.com/funkenstudio/sitemap-module-nuxt-3)
 - [atom fee](./server/routes/feed.xml.ts)
+- [google-adsense](https://github.com/nuxt-modules/google-adsense)
 
 # Docker build & run
 
