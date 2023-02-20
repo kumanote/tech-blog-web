@@ -16,5 +16,6 @@ export default defineAppConfig({
   corporateWebSiteTopUrl: 'https://kumano-te.com',
   privacyPolicyUrl: 'https://kumano-te.com/privacy_policy',
   apiBaseUrl: 'https://api.kumano-te.com/api/v1',
+  baseUrl: 'https://blog.kumano-te.com',
   acceptTrackingCookieName: 'accept-tracking',
 })

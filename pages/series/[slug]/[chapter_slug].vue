@@ -6,6 +6,7 @@
   import { getChapter, searchRelatedChapters } from '~/api/gateway/series'
   import { Chapter } from '~/api/schema/series'
   import { parseHtml } from '~/lib/toc'
+  const appConfig = useAppConfig()
   const runtimeConfig = useRuntimeConfig()
   const route = useRoute()
   const single: Chapter | null = await getChapter({
@@ -14,8 +15,34 @@
   if (!single) {
     throw createError({ statusCode: 404, statusMessage: 'Page Not Found' })
   }
-  useHead({ title: single.title })
-  const relatedActivities = await searchRelatedChapters({
+  const ogImageUrl =
+    single.avatar_image_url || `${appConfig.baseUrl}/images/ogp/common.png`
+  const description = single.subtitle || appConfig.description
+  useHead({
+    title: single.title,
+    meta: [
+      { name: 'description', content: description },
+      {
+        name: 'keywords',
+        content: single.tags?.join(', ') || '',
+      },
+      { property: 'og:title', content: single.title },
+      { name: 'og:description', content: single.subtitle || '' },
+      {
+        property: 'og:url',
+        content: `${appConfig.baseUrl}/series/${single.series_slug}/${single.slug}`,
+      },
+      {
+        property: 'og:image',
+        content: ogImageUrl,
+      },
+      { name: 'twitter:card', content: 'summary' },
+      { name: 'twitter:title', content: single.title },
+      { name: 'twitter:description', content: description },
+      { name: 'twitter:image:src', content: ogImageUrl },
+    ],
+  })
+  const relatedChapters = await searchRelatedChapters({
     seriesSlug: single.series_slug,
   })
   const { $md } = useNuxtApp()
@@ -91,10 +118,7 @@
             ></adsbygoogle>
           </div>
         </div>
-        <div
-          v-if="relatedActivities && relatedActivities.length > 1"
-          class="py-8"
-        >
+        <div v-if="relatedChapters && relatedChapters.length > 1" class="py-8">
           <h1
             class="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight dark:text-gray-50"
           >
@@ -102,7 +126,7 @@
           </h1>
           <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 mt-4">
             <ChapterCardSmall
-              v-for="(item, index) in relatedActivities"
+              v-for="(item, index) in relatedChapters"
               :key="index"
               :chapter="item"
               :active="item.slug === single.slug"
