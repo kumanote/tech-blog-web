@@ -96,7 +96,7 @@
           class="py-8"
         >
           <h1
-            class="text-2xl sm:text-3xl font-extrabold text-gray-800 tracking-tight"
+            class="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight dark:text-gray-50"
           >
             関連する記事
           </h1>
