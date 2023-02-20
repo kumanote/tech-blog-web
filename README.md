@@ -23,8 +23,8 @@ This is a real-world example of [Nuxt3](https://nuxt.com/) application with the 
 
 ```bash
 % IMAGE=tech-blog-web:latest
-% docker build -t ${IMAGE} .
-% docker run --rm -p 3000:3000 -e GOOGLE_ADSENSE_TEST_MODE=true ${IMAGE}
+% docker build -t ${IMAGE} --build-arg GOOGLE_ADSENSE_ID=${GOOGLE_ADSENSE_ID:-ca-google} --build-arg GOOGLE_ADSENSE_TEST_MODE=${GOOGLE_ADSENSE_TEST_MODE:-true} .
+% docker run --rm -p 3000:3000 ${IMAGE}
 ```
 
 **archive**

@@ -249,6 +249,8 @@ export default defineNuxtConfig({
     [
       '@nuxtjs/google-adsense',
       {
+        id: process.env.GOOGLE_ADSENSE_ID,
+        test: process.env.GOOGLE_ADSENSE_TEST_MODE === 'true',
         onPageLoad: false,
         pageLevelAds: false,
       },
@@ -272,10 +274,6 @@ export default defineNuxtConfig({
       adsenseActivityDetail: '', // can be overridden by NUXT_PUBLIC_ADSENSE_ACTIVITY_DETAIL environment variable
       adsenseChapterDetail: '', // can be overridden by NUXT_PUBLIC_ADSENSE_CHAPTER_DETAIL environment variable
       adsenseArticleToc: '', // can be overridden by NUXT_PUBLIC_ADSENSE_ARTICLE_TOC environment variable
-      'google-adsense': {
-        id: process.env.GOOGLE_ADSENSE_ID,
-        test: process.env.GOOGLE_ADSENSE_TEST_MODE === 'true',
-      },
     },
   },
 })
