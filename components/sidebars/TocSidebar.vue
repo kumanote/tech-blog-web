@@ -59,13 +59,13 @@
 
 <template>
   <div class="flex flex-col justify-between">
-    <div>
+    <div class="mb-2">
       <h5
         class="text-gray-900 dark:text-gray-50 uppercase tracking-wide font-semibold mb-3 text-sm lg:text-xs"
       >
         Table of Contents
       </h5>
-      <ul class="overflow-x-hidden font-medium mb-8">
+      <ul class="overflow-x-hidden font-medium">
         <li v-for="(item, index) in toc" :key="index">
           <a
             class="block transform transition-colors duration-200 py-2"
@@ -79,9 +79,11 @@
           >
         </li>
       </ul>
-      <adsbygoogle
-        :ad-slot="String(runtimeConfig.adsenseArticleToc)"
-      ></adsbygoogle>
+      <div class="py-6">
+        <adsbygoogle
+          :ad-slot="String(runtimeConfig.adsenseArticleToc)"
+        ></adsbygoogle>
+      </div>
     </div>
   </div>
 </template>
