@@ -115,9 +115,78 @@
     delete: '・・・－・',
     va: '・・・－・－',
   }
+  const dictionaryJaExtraOrder = [
+    'ア',
+    'イ',
+    'ウ',
+    'エ',
+    'オ',
+    'カ',
+    'キ',
+    'ク',
+    'ケ',
+    'コ',
+    'サ',
+    'シ',
+    'ス',
+    'セ',
+    'ソ',
+    'タ',
+    'チ',
+    'ツ',
+    'テ',
+    'ト',
+    'ナ',
+    'ニ',
+    'ヌ',
+    'ネ',
+    'ノ',
+    'ハ',
+    'ヒ',
+    'フ',
+    'ヘ',
+    'ホ',
+    'マ',
+    'ミ',
+    'ム',
+    'メ',
+    'モ',
+    'ヤ',
+    'ユ',
+    'ヨ',
+    'ラ',
+    'リ',
+    'ル',
+    'レ',
+    'ロ',
+    'ワ',
+    'ヰ',
+    'ヱ',
+    'ヲ',
+    'ン',
+    '゛',
+    '゜',
+    'ー',
+    '、',
+    '」',
+    '（',
+    '）',
+    'delete',
+    'va',
+  ]
+  const dictionaryJa2 = {}
+  for (const key of dictionaryJaExtraOrder) {
+    dictionaryJa2[key] = dictionaryJa[key]
+  }
+  console.log(dictionaryJa2)
   const dictionary = {
     en: dictionaryEn,
     ja: dictionaryJa,
+  }
+  const dictionaryForExplanation = {
+    en: dictionaryEn,
+    ja: dictionaryJa,
+    ja2: dictionaryJa2,
   }
   class Morse {
     _lang: string
@@ -400,11 +469,17 @@
             </p>
           </div>
           <div class="mt-10">
-            <div v-for="(dict, lang) in dictionary" :key="lang">
+            <div v-for="(dict, lang) in dictionaryForExplanation" :key="lang">
               <h5
                 class="text-sm leading-6 font-bold text-gray-900 dark:text-gray-50"
               >
-                {{ lang === 'en' ? '欧文' : '和文' }}
+                {{
+                  lang === 'en'
+                    ? '欧文'
+                    : lang === 'ja'
+                    ? '和文（イロハ順）'
+                    : '和文（アイウエオ順）'
+                }}
               </h5>
               <div
                 class="bg-white dark:bg-gray-800 shadow overflow-hidden lg:rounded-md mb-4"

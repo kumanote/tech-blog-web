@@ -9,3 +9,5 @@ node_modules
 .envrc
 dist
 .idea/
+*.md
+!README.md
